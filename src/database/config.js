@@ -1,0 +1,1 @@
+exports.DATABASE_URL = '';
