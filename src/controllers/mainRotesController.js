@@ -1,3 +1,3 @@
 exports.homePageController = (req, res) => {
-  res.send('Hello World');
+  res.render('pages/home', { pageTitle: 'Home Page' });
 };
