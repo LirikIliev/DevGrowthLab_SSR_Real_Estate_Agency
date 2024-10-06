@@ -3,7 +3,7 @@ const { Schema, model } = require('mongoose');
 const { EMAIL_REGEX } = require('../config/config');
 
 const userSchema = new Schema({
-  userName: {
+  username: {
     type: String,
     required: true,
     minLength: 3,
@@ -15,7 +15,7 @@ const userSchema = new Schema({
     unique: true,
     validate: {
       validator: function (email) {
-        return email.test(EMAIL_REGEX);
+        return EMAIL_REGEX.test(email);
       }
     }
   },

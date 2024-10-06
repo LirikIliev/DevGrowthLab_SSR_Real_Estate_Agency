@@ -1,23 +1,36 @@
 const { Router } = require('express');
-const { homePageController, searchForOfferController } = require('../controllers/mainRotesController');
-const { loginController, getRegisterController, logoutController, postRegisterController } = require('../controllers/authControllers');
-const { rentHouseController, getCreateOfferController } = require('../controllers/houseControllers');
 
+const {
+  homePageController,
+  searchForOfferController
+} = require('../controllers/mainRotesController');
+const {
+  getLoginController,
+  getRegisterController,
+  logoutController,
+  postRegisterController,
+  postLoginController
+} = require('../controllers/authControllers');
+const {
+  rentHouseController,
+  getCreateOfferController
+} = require('../controllers/houseControllers');
+
+//* router initialization
 const router = Router();
-
 //* main controllers
+//!main controllers
 router.get('/', homePageController);
 router.get('/search-for-offer', searchForOfferController);
-
 //* Authenticated controllers
 //! login/logout
-router.get('/login', loginController);
+router.get('/login', getLoginController);
+router.post('/login', postLoginController)
 router.get('/logout', logoutController);
 //! registration
 router.get('/register', getRegisterController);
 router.post('/register', postRegisterController);
-
-//* guest controllers
+//* house controllers
 router.get('/rent-house', rentHouseController);
 router.get('/create-offer', getCreateOfferController);
 

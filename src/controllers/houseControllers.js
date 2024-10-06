@@ -6,8 +6,11 @@ exports.getCreateOfferController = (req, res) => {
   res.render('pages/create', { pageTitle: 'Create Offer' });
 };
 
-exports.postCreateOfferController = (req, res) => {
-  const offerInformation = req.body;
-  console.log(offerInformation);
-  res.status(200).redirect('/');
+exports.postCreateOfferController = async (req, res) => {
+  try {
+    const offerInformation = req.body;
+    res.status(200).redirect('/');
+  } catch (err) {
+    console.error(err);
+  }
 }
