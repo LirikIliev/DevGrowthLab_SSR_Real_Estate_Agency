@@ -29,12 +29,13 @@ exports.getRegisterController = (req, res) => {
   res.render('pages/register', { pageTitle: 'Register', isAuth, error: '' });
 };
 
-exports.postRegisterController = async (req, res) => {
+exports.postRegisterController = async (req, res, next) => {
   try {
     const registrationInfo = req.body;
     await registrationService(registrationInfo);
     res.status(200).redirect('/');
   } catch (err) {
     console.error(err);
+    next(err);
   }
 };
