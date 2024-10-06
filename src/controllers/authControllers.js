@@ -33,9 +33,9 @@ exports.postRegisterController = async (req, res, next) => {
   try {
     const registrationInfo = req.body;
     await registrationService(registrationInfo);
+
     res.status(200).redirect('/');
   } catch (err) {
-    console.error(err);
     next(err);
   }
 };

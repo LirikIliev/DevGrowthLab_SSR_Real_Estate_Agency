@@ -5,20 +5,6 @@ const { keyValueCheck } = require("./helpers");
 const { SALT_ROUNDS } = require('../config/config');
 const { ERROR_MESSAGES } = require('./config');
 
-exports.registrationService = (registrationData) => {
-  const { username, email, password, repeatPassword } = registrationData;
-  const hasEmptyField = keyValueCheck(registrationData);
-  if (password !== repeatPassword) throw ERROR_MESSAGES.equalityOfPassword
-  if (hasEmptyField) throw ERROR_MESSAGES.emptyField;
-
-  return bcrypt.hash(password, SALT_ROUNDS, (err, cryptData) => {
-    if (err) throw err;
-    const cryptRegistrationData = { username, email, password: cryptData };
-
-    return new User(cryptRegistrationData).save();
-  });
-};
-
 exports.loginService = async (loginData) => {
   const hasEmptyField = keyValueCheck(loginData);
   if (hasEmptyField) throw ERROR_MESSAGES.emptyField;
@@ -31,4 +17,20 @@ exports.loginService = async (loginData) => {
   if (!isAuthenticationCorrect) throw ERROR_MESSAGES.userNotFound;
 
   return user;
+};
+
+exports.registrationService = (registrationData) => {
+  const { username, email, password, repeatPassword } = registrationData;
+  const hasEmptyField = keyValueCheck(registrationData);
+  if (password !== repeatPassword) throw ERROR_MESSAGES.equalityOfPassword
+  if (hasEmptyField) throw ERROR_MESSAGES.emptyField;
+
+  return new Promise((resolve, reject) =>
+    bcrypt.hash(password, SALT_ROUNDS, (err, cryptData) => {
+      if (err) return reject(err)
+      const cryptRegistrationData = { username, email, password: cryptData };
+
+      return resolve(new User(cryptRegistrationData).save());
+    })
+  );
 };
