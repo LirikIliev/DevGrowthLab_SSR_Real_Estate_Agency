@@ -8,39 +8,46 @@
                 <h2 class="box-heading"> Add new home</h2>
 
 
-                <form class="form" action="" method="">
+                <form class="form" method="POST">
                     <div class="input">
-                        <input type="text" class="input-field" id="home-name" placeholder="Real House Luxury Villa..."
-                            name="" value="" />
                         <label class="home-name">Name:</label>
+                        <input type="text" class="input-field" id="home-name" placeholder="Real House Luxury Villa..."
+                            name="name" value="<%= values.name ? values.name : '' %>" />
                     </div>
+
                     <div class="input">
-                        <input type="text" class="input-field" id="type" placeholder="Villa..." name="" value="" />
                         <label class="type">Property Type:</label>
+                        <input type="text" class="input-field" id="type" placeholder="Villa..." name="type"
+                            value="<%= values.type ? values.type : '' %>" />
                     </div>
+
                     <div class="input">
-                        <input type="number" class="input-field" id="year" placeholder="2018..." name="" value="" />
                         <label class="year">Year Built:</label>
+                        <input type="number" class="input-field" id="year" placeholder="2018..." name="year"
+                            value="<%= values.year ? values.year : '' %>" />
                     </div>
+
                     <div class="input">
-                        <input type="text" class="input-field" id="city" placeholder="Sofia..." name="" value="" />
                         <label class="city">City</label>
+                        <input type="text" class="input-field" id="city" placeholder="Sofia..." name="city"
+                            value="<%= values.city ? values.city : '' %>" />
                     </div>
 
                     <div class="input">
-                        <input type="text" class="input-field" id="homeImage" placeholder="Image..." name="" value="" />
                         <label class="homeImage">Home Image:</label>
+                        <input type="text" class="input-field" id="homeImage" placeholder="Image..." name="image"
+                            value="<%= values.image ? values.image : '' %>" />
                     </div>
 
                     <div class="input">
-                        <input type="text" class="input-field" id="description" placeholder="Description..." name=""
-                            value="" />
                         <label class="description">Property Description:</label>
+                        <input type="text" class="input-field" id="description" placeholder="Description..."
+                            name="description" value="<%= values.description ? values.description: '' %>" />
                     </div>
 
                     <div class="input">
-                        <input type="number" class="input-field" id="availablePieces" placeholder="1" name=""
-                            value="" />
+                        <input type="number" class="input-field" id="availablePieces" placeholder="1"
+                            name="availablePieces" value="<%= values.availablePieces ? values.availablePieces: '' %>" />
                         <label class="availablePieces">Available pieces:</label>
                     </div>
 
