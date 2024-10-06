@@ -2,7 +2,8 @@ const { Router } = require('express');
 
 const {
   homePageController,
-  searchForOfferController
+  searchForOfferController,
+  getNotFoundController
 } = require('../controllers/mainRotesController');
 const {
   getLoginController,
@@ -33,6 +34,7 @@ router.post('/register', postRegisterController);
 //* house controllers
 router.get('/rent-house', rentHouseController);
 router.get('/create-offer', getCreateOfferController);
-
+//* page not found controller
+router.get('/404', getNotFoundController);
 
 module.exports = router;

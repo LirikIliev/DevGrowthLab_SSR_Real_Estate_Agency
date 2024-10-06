@@ -2,7 +2,8 @@ const express = require('express');
 const { port } = require('./config/config');
 const cookieParser = require('cookie-parser');
 const router = require('./router/router');
-const { databaseConnection } = require('./database/doatabaseConnection');
+const { databaseConnection } = require('./database/databaseConnection');
+const errorHandle = require('./middleware/errorHandle');
 
 const app = express();
 
@@ -18,6 +19,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 //* route systems
 app.use(router);
+
+//* error handling middleware
+app.use(errorHandle)
 
 //* server and database connection.
 const serverConnection = () => app.listen(port, () => console.log(`Server is listening on port : ${port}`))

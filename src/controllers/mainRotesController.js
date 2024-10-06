@@ -8,3 +8,7 @@ exports.searchForOfferController = (req, res) => {
   res.render('pages/search', { pageTitle: 'Search For Offer', isAuth, error: '' });
 };
 
+exports.getNotFoundController = (req, res) => {
+  const { isAuth } = req.cookies;
+  res.render('pages/404', { pageTitle: 'Not Found', isAuth, error: '' })
+}

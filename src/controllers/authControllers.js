@@ -5,7 +5,7 @@ exports.getLoginController = (req, res) => {
   res.render('pages/login', { pageTitle: 'Login', isAuth, error: '' });
 };
 
-exports.postLoginController = async (req, res) => {
+exports.postLoginController = async (req, res, next) => {
   try {
     const user = await loginService(req.body)
     if (!user) res.status(400).redirect('/404');
@@ -14,6 +14,7 @@ exports.postLoginController = async (req, res) => {
     res.status(200).redirect('/');
   } catch (err) {
     console.error(err);
+    next(err);
   }
 };
 
