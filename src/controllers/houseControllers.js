@@ -1,9 +1,11 @@
 exports.rentHouseController = (req, res) => {
-  res.render('pages/aprt-for-rent', { pageTitle: 'House For Rent' });
+  const { isAuth } = req.cookies;
+  res.render('pages/aprt-for-rent', { pageTitle: 'House For Rent', isAuth, error: '' });
 };
 
 exports.getCreateOfferController = (req, res) => {
-  res.render('pages/create', { pageTitle: 'Create Offer' });
+  const { isAuth } = req.cookies;
+  res.render('pages/create', { pageTitle: 'Create Offer', isAuth, error: '' });
 };
 
 exports.postCreateOfferController = async (req, res) => {

@@ -11,7 +11,6 @@ exports.registrationService = (registrationData) => {
   if (password !== repeatPassword) throw ERROR_MESSAGES.equalityOfPassword
   if (hasEmptyField) throw ERROR_MESSAGES.emptyField;
 
-  //! to thing how to extract bcrypt logic.
   return bcrypt.hash(password, SALT_ROUNDS, (err, cryptData) => {
     if (err) throw err;
     const cryptRegistrationData = { username, email, password: cryptData };

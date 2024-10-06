@@ -1,8 +1,10 @@
 exports.homePageController = (req, res) => {
-  res.render('pages/home', { pageTitle: 'Home Page' });
+  const { isAuth } = req.cookies;
+  res.render('pages/home', { pageTitle: 'Home Page', isAuth, error: '' });
 };
 
 exports.searchForOfferController = (req, res) => {
-  res.render('pages/search', { pageTitle: 'Search For Offer' });
+  const { isAuth } = req.cookies;
+  res.render('pages/search', { pageTitle: 'Search For Offer', isAuth, error: '' });
 };
 
