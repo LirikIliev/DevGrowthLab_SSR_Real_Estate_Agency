@@ -12,20 +12,21 @@
                     <div class="input">
                         <label class="username">Username</label>
                         <input type="text" class="input-field" placeholder="A_Jonson" id="username" name="username"
-                            value="" />
+                            value="<%=values.username ? values.username : '' %>" />
                     </div>
                     <div class="input">
                         <input type="text" class="input-field" placeholder="a.jonson@smith.ths" id="email" name="email"
-                            value="" />
+                            value="<%=values.email ? values.email : '' %>" />
                         <label class="email_address">Email Address</label>
                     </div>
                     <div class="input">
-                        <input type="password" class="input-field" id="password" name="password" placeholder="******" />
+                        <input type="password" class="input-field" id="password" name="password" placeholder="******"
+                            value="<%=values.password ? values.password : '' %>" />
                         <label class="password">Password</label>
                     </div>
                     <div class="input">
                         <input type="password" class="input-field" id="re-password" name="repeatPassword"
-                            placeholder="******" />
+                            placeholder="******" value="<%=values.repeatPassword ? values.repeatPassword : '' %>" />
                         <label class="re-password">Repeat Password</label>
                     </div>
                     <div class="action">

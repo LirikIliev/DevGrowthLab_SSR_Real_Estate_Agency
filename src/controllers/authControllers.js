@@ -2,7 +2,13 @@ const { registrationService, loginService } = require("../services/authServices"
 
 exports.getLoginController = (req, res) => {
   const { isAuth } = req.cookies;
-  res.render('pages/login', { pageTitle: 'Login', isAuth, error: '' });
+  res.render('pages/login',
+    {
+      pageTitle: 'Login',
+      isAuth,
+      values: {},
+      error: ''
+    });
 };
 
 exports.postLoginController = async (req, res, next) => {
@@ -13,8 +19,13 @@ exports.postLoginController = async (req, res, next) => {
     res.cookie('user', user);
     res.status(200).redirect('/');
   } catch (err) {
-    console.error(err);
-    next(err);
+    const errObj = {
+      errorObject: err,
+      path: "pages/login",
+      pageTitle: 'Login',
+      values: req.body
+    };
+    next(errObj);
   }
 };
 
@@ -26,7 +37,13 @@ exports.logoutController = (req, res) => {
 
 exports.getRegisterController = (req, res) => {
   const { isAuth } = req.cookies;
-  res.render('pages/register', { pageTitle: 'Register', isAuth, error: '' });
+  res.render('pages/register',
+    {
+      pageTitle: 'Register',
+      isAuth,
+      values: {},
+      error: ''
+    });
 };
 
 exports.postRegisterController = async (req, res, next) => {
@@ -36,6 +53,12 @@ exports.postRegisterController = async (req, res, next) => {
 
     res.status(200).redirect('/');
   } catch (err) {
-    next(err);
+    const errObj = {
+      errorObject: err,
+      path: "pages/register",
+      pageTitle: 'Register',
+      values: req.body
+    };
+    next(errObj);
   }
 };

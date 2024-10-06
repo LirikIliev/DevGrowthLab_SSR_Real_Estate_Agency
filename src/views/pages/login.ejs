@@ -13,10 +13,11 @@
                     <div class="input">
                         <label class="email_address">Email Address</label>
                         <input type="email" class="input-field" placeholder="a.jonson@smith.ths" id="email" name="email"
-                            value="" />
+                            value="<%=values.email ? values.email : ''%>" />
                     </div>
                     <div class="input">
-                        <input type="password" class="input-field" id="password" name="password" placeholder="******" />
+                        <input type="password" class="input-field" id="password" name="password" placeholder="******"
+                            value="<%=values.password ? values.password : ''%>" />
                         <label class="password">Password</label>
                     </div>
                     <div class="action">
