@@ -15,7 +15,8 @@ const {
 const {
   rentHouseController,
   getCreateOfferController,
-  postCreateOfferController
+  postCreateOfferController,
+  getPropertyDetailsController
 } = require('../controllers/houseControllers');
 
 //* router initialization
@@ -36,6 +37,7 @@ router.post('/register', postRegisterController);
 router.get('/rent-house', rentHouseController);
 router.get('/create-offer', getCreateOfferController);
 router.post('/create-offer', postCreateOfferController);
+router.get('/property-details/:propertyId', getPropertyDetailsController)
 //* page not found controller
 router.get('/404', getNotFoundController);
 
