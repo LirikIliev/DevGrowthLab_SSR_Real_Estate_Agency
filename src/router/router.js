@@ -1,7 +1,7 @@
 const { Router } = require('express');
 const { homePageController, searchForOfferController } = require('../controllers/mainRotesController');
-const { loginController, registerController, logoutController } = require('../controllers/authControllers');
-const { rentHouseController, createOfferController } = require('../controllers/houseControllers');
+const { loginController, getRegisterController, logoutController, postRegisterController } = require('../controllers/authControllers');
+const { rentHouseController, getCreateOfferController } = require('../controllers/houseControllers');
 
 const router = Router();
 
@@ -9,15 +9,17 @@ const router = Router();
 router.get('/', homePageController);
 router.get('/search-for-offer', searchForOfferController);
 
-//* authenticated controllers
+//* Authenticated controllers
+//! login/logout
 router.get('/login', loginController);
 router.get('/logout', logoutController);
-router.get('/register', registerController);
-router.get('/create-offer');
+//! registration
+router.get('/register', getRegisterController);
+router.post('/register', postRegisterController);
 
 //* guest controllers
 router.get('/rent-house', rentHouseController);
-router.get('/create-offer', createOfferController);
+router.get('/create-offer', getCreateOfferController);
 
 
 module.exports = router;
