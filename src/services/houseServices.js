@@ -31,4 +31,6 @@ exports.updatePropertyDetailsService = ({ propertyId, updatedData }) => {
 
   if (isSomeFieldEmpty) throw ERROR_MESSAGES.emptyField;
   return Property.findByIdAndUpdate(propertyId, updatedData)
-}
+};
+
+exports.deletePropertyService = (propertyId) => Property.findByIdAndDelete(propertyId);

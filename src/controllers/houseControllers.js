@@ -1,4 +1,9 @@
-const { createHouseService, getPropertyDetailsService, updatePropertyDetailsService } = require("../services/houseServices");
+const {
+  createHouseService,
+  getPropertyDetailsService,
+  updatePropertyDetailsService,
+  deletePropertyService
+} = require("../services/houseServices");
 
 exports.rentHouseController = (req, res) => {
   const { isAuth } = req.cookies;
@@ -7,10 +12,12 @@ exports.rentHouseController = (req, res) => {
 
 exports.getCreateOfferController = (req, res) => {
   const { isAuth } = req.cookies;
+
+  const page = 'Create';
   res.render('pages/create', {
-    pageTitle: 'Create Offer',
+    pageTitle: page,
+    operation: page,
     isAuth,
-    create: true,
     values: {},
     error: ''
   });
@@ -29,8 +36,8 @@ exports.postCreateOfferController = async (req, res, next) => {
     const errObj = {
       errorObject: err,
       path: "pages/create",
-      create: true,
       pageTitle: 'Create Offer',
+      operation: 'Create',
       values: req.body
     };
     next(errObj);
@@ -71,14 +78,17 @@ exports.getPropertyDetailsController = async (req, res, next) => {
   }
 };
 
-exports.getEditPropertyOfferController = async (req, res, next) => {
+exports.getEditDeletePropertyController = async (req, res, next) => {
   try {
     const { propertyId } = req.params;
     const { isAuth } = req.cookies;
     const property = await getPropertyDetailsService({ propertyId });
+    const isDeletePage = req.path.includes('/delete');
+    const page = isDeletePage ? 'Delete' : 'Edit';
+
     res.render('pages/create', {
-      pageTitle: 'Edit',
-      create: false,
+      pageTitle: page,
+      operation: page,
       isAuth,
       values: property,
       error: ''
@@ -88,21 +98,25 @@ exports.getEditPropertyOfferController = async (req, res, next) => {
   }
 };
 
-exports.postEditPropertyController = async (req, res, next) => {
+exports.postEditDeletePropertyController = async (req, res, next) => {
   try {
     const { propertyId } = req.params;
-    await updatePropertyDetailsService({ propertyId, updatedData: req.body });
+    const isDeleteOperation = req.path.includes('/delete');
+    if (isDeleteOperation) {
+      await deletePropertyService(propertyId);
+      return res.redirect(`/`);
+    }
 
+    await updatePropertyDetailsService({ propertyId, updatedData: req.body });
     res.redirect(`/edit-property-offer/${propertyId}`);
   } catch (err) {
-    console.log(err)
     const errObj = {
       errorObject: err,
       path: "pages/create",
-      create: false,
+      operation: 'Edit',
       pageTitle: 'Edit',
       values: req.body
     };
     next(errObj);
   }
-}
+};
