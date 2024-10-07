@@ -5,8 +5,9 @@
             <div class="create-container">
                 <div class="box-image"></div>
 
-                <h2 class="box-heading"> Add new home</h2>
-
+                <h2 class="box-heading">
+                    <%= create ? "Add new" : "Edit" %> home
+                </h2>
 
                 <form class="form" method="POST">
                     <div class="input">
@@ -52,9 +53,10 @@
                     </div>
 
                     <div class="create-action">
-                        <button class="create-button">Add</button>
+                        <button class="create-button">
+                            <%= create ? "Add" : "Edit" %>
+                        </button>
                     </div>
-
 
                 </form>
             </div>

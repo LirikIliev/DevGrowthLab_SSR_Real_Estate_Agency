@@ -16,7 +16,9 @@ const {
   rentHouseController,
   getCreateOfferController,
   postCreateOfferController,
-  getPropertyDetailsController
+  getPropertyDetailsController,
+  postEditPropertyController,
+  getEditPropertyOfferController
 } = require('../controllers/houseControllers');
 
 //* router initialization
@@ -38,6 +40,8 @@ router.get('/rent-house', rentHouseController);
 router.get('/create-offer', getCreateOfferController);
 router.post('/create-offer', postCreateOfferController);
 router.get('/property-details/:propertyId', getPropertyDetailsController)
+router.get('/edit-property-offer/:propertyId', getEditPropertyOfferController);
+router.post('/edit-property-offer/:propertyId', postEditPropertyController);
 //* page not found controller
 router.get('/404', getNotFoundController);
 

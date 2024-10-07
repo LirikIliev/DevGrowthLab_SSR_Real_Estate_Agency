@@ -43,7 +43,7 @@ const propertySchema = new Schema({
     type: String,
     require: [true, 'Description is required.'],
     minLength: [20, 'Description min length of symbols must be at least 20 symbols'],
-    maxLength: [350, 'Description max length of symbols must be 350 symbols']
+    maxLength: [100, 'Description max length of symbols must be 350 symbols']
   },
   availablePieces: {
     type: String,
