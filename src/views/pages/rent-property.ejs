@@ -1,0 +1,30 @@
+<%- include('../includes/header') %>
+    <%- include('../includes/navigation') %>
+
+        <section id="all-listings">
+            <h1>Apartments for recents</h1>
+            <% if(properties) {%>
+                <% for(let property of properties) {%>
+                    <div class="card">
+                        <h3>
+                            <%= property.name%>
+                        </h3>
+                        <p>
+                            <%=property.description%>
+                        </p>
+                        <div class="cta-container">
+                            <a href="/property-details/<%=property._id%>" class="det-link">Details</a>
+                        </div>
+                        <div class="card_circle">
+                            <img src="<%=property.image%>">
+                        </div>
+                    </div>
+                    <% } %>
+                        <% } else {%>
+                            <div class="no-data-listing">
+                                <p class="no-offer">There are no housing offers found...</p>
+                            </div>
+                            <% } %>
+        </section>
+
+        <%- include('../includes/footer') %>

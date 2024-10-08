@@ -1,9 +1,10 @@
 const { sortedPropertiesService } = require("../services/houseServices");
+const { HOME_PAGE_PROPERTY_SELECTS: select } = require("./config");
 
 exports.homePageController = async (req, res) => {
   try {
     const { isAuth } = req.cookies;
-    const properties = await sortedPropertiesService({ limit: 3 });
+    const properties = await sortedPropertiesService({ limit: 3, select });
     res.render('pages/home', { pageTitle: 'Home Page', isAuth, properties, error: '' });
   } catch (err) {
     const errObj = {

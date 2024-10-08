@@ -6,13 +6,13 @@ const propertySchema = new Schema({
     type: String,
     require: [true, 'The name of the house is required!'],
     minLength: [3, 'Minimum name length is 3 symbols.'],
-    maxLength: [15, 'Maximum name length is 15 symbols.']
+    maxLength: [30, 'Maximum name length is 30 symbols.']
   },
   type: {
     type: String,
     require: [true, "The house type is required."],
     minLength: [3, 'Minimum type length is 3 letters'],
-    maxLength: [10, 'Maximum type length is 15 symbols']
+    maxLength: [30, 'Maximum type length is 30 symbols']
   },
   year: {
     type: String,
@@ -43,7 +43,7 @@ const propertySchema = new Schema({
     type: String,
     require: [true, 'Description is required.'],
     minLength: [20, 'Description min length of symbols must be at least 20 symbols'],
-    maxLength: [100, 'Description max length of symbols must be 350 symbols']
+    maxLength: [100, 'Description max length of symbols must be 100 symbols']
   },
   availablePieces: {
     type: String,

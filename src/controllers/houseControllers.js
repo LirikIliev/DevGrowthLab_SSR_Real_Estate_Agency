@@ -1,13 +1,19 @@
 const {
-  createHouseService,
+  createPropertyService,
   getPropertyDetailsService,
   updatePropertyDetailsService,
-  deletePropertyService
+  deletePropertyService,
+  getPropertiesService
 } = require("../services/houseServices");
 
-exports.rentHouseController = (req, res) => {
-  const { isAuth } = req.cookies;
-  res.render('pages/aprt-for-rent', { pageTitle: 'House For Rent', isAuth, error: '' });
+exports.rentHouseController = async (req, res, next) => {
+  try {
+    const { isAuth } = req.cookies;
+    const properties = await getPropertiesService();
+    res.render('pages/rent-property', { pageTitle: 'House For Rent', isAuth, error: '', properties });
+  } catch (err) {
+    next({ errorObject: err });
+  }
 };
 
 exports.getCreateOfferController = (req, res) => {
@@ -30,7 +36,7 @@ exports.postCreateOfferController = async (req, res, next) => {
       ...req.body,
       owner: _id,
     };
-    await createHouseService(propertyInfo);
+    await createPropertyService(propertyInfo);
     res.status(200).redirect('/');
   } catch (err) {
     const errObj = {
@@ -51,7 +57,7 @@ exports.getPropertyDetailsController = async (req, res, next) => {
     const { user: { _id } = {} } = req.cookies;
     const property = await getPropertyDetailsService({ propertyId, populateRow: ['owner'] });
     const isOwner = isAuth && _id ? _id.toString() === property.owner._id.toString() : false;
-    const freeSpaces = Number(property.availablePieces) - Number(property.rentedAHouse.length)
+    const freeSpaces = Number(property.availablePieces) - Number(property.rentedAHouse.length);
     const hasFreeSpaces = freeSpaces > 0;
     const hasUserBooked = property.rentedAHouse.some(userId => userId.toString() === _id.toString());
     const tenants = property.rentedAHouse
@@ -108,7 +114,7 @@ exports.postEditDeletePropertyController = async (req, res, next) => {
     }
 
     await updatePropertyDetailsService({ propertyId, updatedData: req.body });
-    res.redirect(`/edit-property-offer/${propertyId}`);
+    res.redirect(`/property-details/${propertyId}`);
   } catch (err) {
     const errObj = {
       errorObject: err,
@@ -120,3 +126,4 @@ exports.postEditDeletePropertyController = async (req, res, next) => {
     next(errObj);
   }
 };
+

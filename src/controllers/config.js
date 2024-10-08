@@ -1,0 +1,1 @@
+exports.HOME_PAGE_PROPERTY_SELECTS = ['_id', 'image', 'description', 'name'];

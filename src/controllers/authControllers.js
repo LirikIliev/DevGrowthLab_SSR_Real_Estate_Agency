@@ -51,7 +51,7 @@ exports.postRegisterController = async (req, res, next) => {
     const registrationInfo = req.body;
     await registrationService(registrationInfo);
 
-    res.status(200).redirect('/');
+    res.status(200).redirect('/login');
   } catch (err) {
     const errObj = {
       errorObject: err,
