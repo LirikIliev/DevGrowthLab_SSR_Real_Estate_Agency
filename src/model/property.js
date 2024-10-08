@@ -1,4 +1,4 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model, default: mongoose } = require('mongoose');
 const { URL_REGEX } = require('../config/config');
 
 const propertySchema = new Schema({
@@ -65,5 +65,20 @@ const propertySchema = new Schema({
     ref: 'User'
   },
 });
+
+propertySchema.statics.updateRentedHouse = async function (propertyId, userId) {
+  try {
+    const property = await this.findById(propertyId);
+    if (!property)
+      throw new Error('Property not found');
+    if (property.rentedAHouse?.includes(userId))
+      throw new Error('User has already rented this property');
+
+    property.rentedAHouse.push(userId);
+    return await property.save();
+  } catch (error) {
+    throw error;
+  }
+};
 
 module.exports = model('Property', propertySchema);

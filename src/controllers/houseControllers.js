@@ -1,9 +1,11 @@
+const { Schema, default: mongoose } = require("mongoose");
 const {
   createPropertyService,
   getPropertyDetailsService,
   updatePropertyDetailsService,
   deletePropertyService,
-  getPropertiesService
+  getPropertiesService,
+  rentPropertyService
 } = require("../services/houseServices");
 
 exports.rentHouseController = async (req, res, next) => {
@@ -127,3 +129,14 @@ exports.postEditDeletePropertyController = async (req, res, next) => {
   }
 };
 
+exports.getRentPropertyController = async (req, res, next) => {
+  try {
+    const { user: { _id: userId } } = req.cookies;
+    const { propertyId } = req.params;
+    await rentPropertyService({ propertyId, userId });
+    res.status(200).redirect(`/property-details/${propertyId}`)
+  } catch (err) {
+    console.log(err)
+    next({ errorObject: err });
+  }
+}

@@ -37,3 +37,5 @@ exports.updatePropertyDetailsService = ({ propertyId, updatedData }) => {
 };
 
 exports.deletePropertyService = (propertyId) => Property.findByIdAndDelete(propertyId);
+
+exports.rentPropertyService = ({ propertyId, userId }) => Property.updateRentedHouse(propertyId, userId)

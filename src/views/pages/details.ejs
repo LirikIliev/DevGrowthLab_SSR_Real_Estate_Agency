@@ -27,7 +27,7 @@
 
                             <% if(tenants) {%>
                                 <p>
-                                    <<%= tenants %>
+                                    <%= tenants %>
                                 </p>
                                 <% } else {%>
                                     <p>People rented this housing: There are no tenants yet.</p>
@@ -42,7 +42,7 @@
                                 <a href="/delete-property-offer/<%=values._id%>" class="remove">Delete</a>
                                 <% } else {%>
                                     <% if(hasFreeSpaces && !hasUserBooked) {%>
-                                        <a href="#" class="rentHome">
+                                        <a href="/rent-property/<%=values._id%>" class="rentHome">
                                             Rent a home, available <%=freeSpaces %> housing
                                         </a>
                                         <% } %>
@@ -50,6 +50,9 @@
                                                 <p class="alRentHome">
                                                     You have already rent this home
                                                 </p>
+                                                <a href="/rent-property" class="rentHome">
+                                                    Back
+                                                </a>
                                                 <% } %>
                                                     <% if(!hasFreeSpaces) {%>
                                                         <p class="no-housing">No Housing Available!</p>
