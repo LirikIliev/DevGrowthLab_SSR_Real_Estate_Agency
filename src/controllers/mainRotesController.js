@@ -1,5 +1,5 @@
-const { sortedPropertiesService } = require("../services/houseServices");
-const { HOME_PAGE_PROPERTY_SELECTS: select } = require("./config");
+const { sortedPropertiesService, searchPropertyService } = require("../services/houseServices");
+const { HOME_PAGE_PROPERTY_SELECTS: select, HOME_PAGE_PROPERTY_SELECTS } = require("./config");
 
 exports.homePageController = async (req, res) => {
   try {
@@ -16,10 +16,24 @@ exports.homePageController = async (req, res) => {
   }
 };
 
-exports.searchForOfferController = (req, res) => {
+exports.getSearchForOfferController = (req, res) => {
   const { isAuth } = req.cookies;
-  res.render('pages/search', { pageTitle: 'Search For Offer', isAuth, error: '' });
+  res.render('pages/search', { pageTitle: 'Search For Offer', isAuth, error: '', searchResults: [] });
 };
+
+exports.postSearchForOfferController = async (req, res, next) => {
+  try {
+    const { isAuth } = req.cookies;
+    const { search: searchPhrase } = req.body;
+    const searchResults = await searchPropertyService({ searchPhrase, selects: HOME_PAGE_PROPERTY_SELECTS });
+    console.log(searchResults);
+
+    res.render('pages/search', { pageTitle: 'Search For Offer', isAuth, error: '', searchResults });
+  } catch (err) {
+    console.log(err)
+    next({ errorObject: err })
+  }
+}
 
 exports.getNotFoundController = (req, res) => {
   const { isAuth } = req.cookies;

@@ -2,8 +2,9 @@ const { Router } = require('express');
 
 const {
   homePageController,
-  searchForOfferController,
-  getNotFoundController
+  getSearchForOfferController,
+  getNotFoundController,
+  postSearchForOfferController
 } = require('../controllers/mainRotesController');
 const {
   getLoginController,
@@ -27,7 +28,8 @@ const router = Router();
 //* main controllers
 //!main controllers
 router.get('/', homePageController);
-router.get('/search-for-offer', searchForOfferController);
+router.get('/search-for-offer', getSearchForOfferController);
+router.post('/search-for-offer', postSearchForOfferController);
 //* Authenticated controllers
 //! login/logout
 router.get('/login', getLoginController);

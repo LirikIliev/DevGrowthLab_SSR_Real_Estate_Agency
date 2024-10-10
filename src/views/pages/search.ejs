@@ -1,26 +1,37 @@
 <%- include('../includes/header') %>
     <%- include('../includes/navigation') %>
 
-        <form class="search" action="" method="">
-            <input type="search" name="" placeholder="Search here...">
+        <form class="search" method="POST">
+            <input type="search" name="search" placeholder="Search here...">
             <button type="submit">Search</button>
         </form>
         <section id="find-section">
 
-            <!-- If there are any matching matches from the search, show each of them -->
+            <% if(searchResults?.length>0) {%>
 
-            <div class="card">
-                <h3>Real House Luxury Villa</h3>
-                <p>Spacious and grand villa, 3 bedroom, 2 bath </p>
-                <div class="cta-container"><a href="#" class="det-link">Details</a></div>
-                <div class="card_circle"><img src="./static/images/house2.jpg"></div>
+                <% for(let property of searchResults) {%>
+                    <div class="card">
+                        <h3>
+                            <%= property.name %>
+                        </h3>
+                        <p>
+                            <%= property.description%>
 
-            </div>
+                        </p>
+                        <div class="cta-container">
+                            <a href="/property-details/<%= property._id %>" class="det-link">Details</a>
+                        </div>
+                        <div class="card_circle">
+                            <img src="<%=property.image %>" alt="property image" />
+                        </div>
+                    </div>
+                    <% } %>
 
-            <!-- If there are no search matches, show: -->
-            <!--<div class="no-data-listing">
-                    <p class="no-offer">No match was found for the submitted type...</p>
-                </div>-->
+                        <%} else{%>
+                            <div class="no-data-listing">
+                                <p class="no-offer">No match was found for the submitted type...</p>
+                            </div>
+                            <% } %>
         </section>
 
         <%- include('../includes/footer') %>

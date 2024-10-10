@@ -38,4 +38,22 @@ exports.updatePropertyDetailsService = ({ propertyId, updatedData }) => {
 
 exports.deletePropertyService = (propertyId) => Property.findByIdAndDelete(propertyId);
 
-exports.rentPropertyService = ({ propertyId, userId }) => Property.updateRentedHouse(propertyId, userId)
+exports.rentPropertyService = ({ propertyId, userId }) => Property.updateRentedHouse(propertyId, userId);
+
+exports.searchPropertyService = ({ searchPhrase, selects }) => {
+  if (selects)
+    return Property
+      .find(
+        {
+          name:
+            { $regex: new RegExp(searchPhrase, 'i') }
+        })
+      .select(selects);
+
+  return Property
+    .find(
+      {
+        name:
+          { $regex: new RegExp(searchPhrase, 'i') }
+      });
+};

@@ -35,8 +35,8 @@
                         </div>
                     </div>
 
-                    <% if(isAuth) {%>
-                        <div class="product-btn">
+                    <div class="product-btn">
+                        <% if(isAuth) {%>
                             <% if(isOwner) { %>
                                 <a href='/edit-property-offer/<%=values._id%>' class="edit">Edit</a>
                                 <a href="/delete-property-offer/<%=values._id%>" class="remove">Delete</a>
@@ -50,16 +50,16 @@
                                                 <p class="alRentHome">
                                                     You have already rent this home
                                                 </p>
-                                                <a href="/rent-property" class="rentHome">
-                                                    Back
-                                                </a>
                                                 <% } %>
                                                     <% if(!hasFreeSpaces) {%>
                                                         <p class="no-housing">No Housing Available!</p>
                                                         <% } %>
                                                             <% } %>
-                        </div>
-                        <% } %>
+                                                                <% } %>
+                                                                    <a href="/rent-property" class="rentHome">
+                                                                        Back
+                                                                    </a>
+                    </div>
                 </div>
             </div>
         </section>
