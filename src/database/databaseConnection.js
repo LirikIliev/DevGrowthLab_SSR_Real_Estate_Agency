@@ -8,5 +8,5 @@ exports.databaseConnection = (callback) =>
       console.log('Database is successfully connected!');
       callback();
     }).catch(err => {
-      console.log(err);
+      console.error(err);
     });

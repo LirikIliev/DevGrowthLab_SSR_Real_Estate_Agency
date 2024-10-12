@@ -136,7 +136,7 @@ exports.getRentPropertyController = async (req, res, next) => {
     await rentPropertyService({ propertyId, userId });
     res.status(200).redirect(`/property-details/${propertyId}`)
   } catch (err) {
-    console.log(err)
+    console.error(err)
     next({ errorObject: err });
   }
 }

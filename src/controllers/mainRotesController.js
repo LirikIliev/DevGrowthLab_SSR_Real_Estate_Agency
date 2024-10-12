@@ -26,11 +26,10 @@ exports.postSearchForOfferController = async (req, res, next) => {
     const { isAuth } = req.cookies;
     const { search: searchPhrase } = req.body;
     const searchResults = await searchPropertyService({ searchPhrase, selects: HOME_PAGE_PROPERTY_SELECTS });
-    console.log(searchResults);
 
     res.render('pages/search', { pageTitle: 'Search For Offer', isAuth, error: '', searchResults });
   } catch (err) {
-    console.log(err)
+    console.error(err)
     next({ errorObject: err })
   }
 }
