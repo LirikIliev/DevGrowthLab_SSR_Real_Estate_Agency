@@ -5,20 +5,12 @@
   color: #6658d3;
   transform: translateY(-1.5rem);
 }
+
 main {
   padding: 2px;
 }
-.create-container {
-  margin: 3rem auto;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: 700px;
-  border-radius: 10px;
-  box-shadow: 0px 0px 40px 0px;
-  padding: 0.55rem;
-  background: rgb(255, 255, 255);
-}
+
+.create-container,
 .edit-container {
   margin: 3rem auto;
   display: flex;
@@ -30,6 +22,7 @@ main {
   padding: 0.55rem;
   background: rgb(255, 255, 255);
 }
+
 .box-image {
   border-radius: 8px;
   padding-bottom: 35%;
@@ -39,6 +32,7 @@ main {
   background-position: 0 75%;
   position: relative;
 }
+
 .box-heading {
   position: relative;
   font-family: 'Raleway';
@@ -49,60 +43,13 @@ main {
   color: #6658d3;
   line-height: 1.222;
 }
-.home-name {
-  color: #8597a3;
-  position: absolute;
-  font-size: 1.7em;
-  top: 1.4rem;
-  transition: 0.25s ease;
-  color: #6658d3;
-  transform: translateY(-1.5rem);
-}
-.year {
-  color: #8597a3;
-  position: absolute;
-  font-size: 1.7em;
-  top: 1.4rem;
-  transition: 0.25s ease;
-  color: #6658d3;
-  transform: translateY(-1.5rem);
-}
-.type {
-  color: #8597a3;
-  position: absolute;
-  font-size: 1.7em;
-  top: 1.4rem;
-  transition: 0.25s ease;
-  color: #6658d3;
-  transform: translateY(-1.5rem);
-}
-.city {
-  color: #8597a3;
-  position: absolute;
-  font-size: 1.7em;
-  top: 1.4rem;
-  transition: 0.25s ease;
-  color: #6658d3;
-  transform: translateY(-1.5rem);
-}
-.availablePieces {
-  color: #8597a3;
-  position: absolute;
-  font-size: 1.7em;
-  top: 1.4rem;
-  transition: 0.25s ease;
-  color: #6658d3;
-  transform: translateY(-1.5rem);
-}
-.description {
-  color: #8597a3;
-  position: absolute;
-  font-size: 1.7em;
-  top: 1.4rem;
-  transition: 0.25s ease;
-  color: #6658d3;
-  transform: translateY(-1.5rem);
-}
+
+.home-name,
+.year,
+.type,
+.city,
+.availablePieces,
+.description,
 .homeImage {
   color: #8597a3;
   position: absolute;
@@ -112,15 +59,18 @@ main {
   color: #6658d3;
   transform: translateY(-1.5rem);
 }
+
 .form {
   padding: 0.7rem 1rem 0;
 }
+
 .input {
   display: flex;
   flex-direction: column-reverse;
   position: relative;
   padding-top: 1.9rem;
 }
+
 .input-field {
   border: 0;
   z-index: 1;
@@ -129,18 +79,22 @@ main {
   font: inherit;
   font-size: 1.5rem;
   padding: 0.25rem 0;
+
   &:focus {
     outline: 0;
     border-bottom-color: #6658d3;
   }
+
   &:valid {
     outline: 0;
     border-bottom-color: #6658d3;
   }
 }
+
 .create-action {
   margin-top: 0.1rem;
 }
+
 .create-button {
   font: inherit;
   font-size: 1.2rem;
@@ -151,10 +105,66 @@ main {
   border-radius: 6px;
   color: #fff;
   border: 0;
+
   &:focus {
     outline: 0;
   }
+
   &:hover {
     background-color: #5246a8;
+  }
+}
+
+@media (max-width: 1000px) {
+  .create-container,
+  .edit-container {
+    margin: 2rem auto;
+    padding: 1rem;
+    max-width: 90%;
+  }
+
+  .box-heading {
+    font-size: 2.2rem;
+  }
+
+  .input-field {
+    font-size: 1.3rem;
+  }
+
+  .create-button {
+    font-size: 1rem;
+    padding: 0.8em;
+  }
+}
+
+@media (max-width: 600px) {
+  .create-container,
+  .edit-container {
+    margin: 1rem auto;
+    padding: 0.5rem;
+    max-width: 100%;
+  }
+
+  .box-heading {
+    font-size: 1.8rem;
+  }
+
+  .input-field {
+    font-size: 1.2rem;
+  }
+
+  .create-button {
+    font-size: 0.9rem;
+    padding: 0.5em;
+  }
+
+  .home-name,
+  .year,
+  .type,
+  .city,
+  .availablePieces,
+  .description,
+  .homeImage {
+    font-size: 1.5em;
   }
 }

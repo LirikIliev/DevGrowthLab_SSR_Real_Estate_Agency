@@ -11,16 +11,30 @@
     <% } %>
 
       <nav>
-        <a href="/">Home</a>
+        <div class=<%=path==='/' ? 'active' : '' %>>
+          <a href="/">Home</a>
+        </div>
         <ul>
-          <li><a href="/search-for-offer">Search</a></li>
-          <li><a href="/rent-property">Housing for rent</a></li>
+          <li class="<%= path === '/search-for-offer' ? 'active' : ''%>">
+            <a href="/search-for-offer">Search</a>
+          </li>
+          <li class="<%=path==='/rent-property' ? 'active' : '' %>">
+            <a href=" /rent-property">Property for rent</a>
+          </li>
           <% if(isAuth) { %>
-            <li><a href="/create-offer">Create offer</a></li>
-            <li><a href="/logout">Logout</a></li>
+            <li class="<%=path==='/rent-property' ? 'active' : '' %>">
+              <a href="/create-offer">Create offer</a>
+            </li>
+            <li class="<%=path==='/logout' ? 'active' : '' %>">
+              <a href="/logout">Logout</a>
+            </li>
             <% } else { %>
-              <li><a href="/login">Login</a></li>
-              <li><a href="/register">Register</a></li>
+              <li class="<%=path==='/login' ? 'active' : '' %>">
+                <a href="/login">Login</a>
+              </li>
+              <li class="<%=path==='/register' ? 'active' : '' %>">
+                <a href="/register">Register</a>
+              </li>
               <% } %>
         </ul>
       </nav>

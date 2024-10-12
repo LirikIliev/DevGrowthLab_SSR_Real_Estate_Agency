@@ -8,31 +8,29 @@
                 </div>
                 <div class="product-info">
                     <div class="product-text">
-                        <div class="product-text">
-                            <h1>
-                                Name: <%=values.name %>
-                            </h1>
-                            <h2>
-                                Type: <%=values.type%>
-                            </h2>
-                            <h4>
-                                Year: <%=values.year%>
-                            </h4>
-                            <h4>
-                                City: <%=values.city%>
-                            </h4>
-                            <p>
-                                Description: <%=values.description%>
-                            </p>
+                        <h1>
+                            Name: <%=values.name %>
+                        </h1>
+                        <h2>
+                            Type: <%=values.type%>
+                        </h2>
+                        <h4>
+                            Year: <%=values.year%>
+                        </h4>
+                        <h4>
+                            City: <%=values.city%>
+                        </h4>
+                        <p>
+                            Description: <%=values.description%>
+                        </p>
 
-                            <% if(tenants) {%>
-                                <p>
-                                    <%= tenants %>
-                                </p>
-                                <% } else {%>
-                                    <p>People rented this housing: There are no tenants yet.</p>
-                                    <% } %>
-                        </div>
+                        <% if(tenants) {%>
+                            <p>
+                                <%= tenants %>
+                            </p>
+                            <% } else {%>
+                                <p>People rented this housing: There are no tenants yet.</p>
+                                <% } %>
                     </div>
 
                     <div class="product-btn">
@@ -42,13 +40,14 @@
                                 <a href="/delete-property-offer/<%=values._id%>" class="remove">Delete</a>
                                 <% } else {%>
                                     <% if(hasFreeSpaces && !hasUserBooked) {%>
+                                        <!-- <p> Property has <%=freeSpaces %> available spots.</p> -->
                                         <a href="/rent-property/<%=values._id%>" class="rentHome">
-                                            Rent a home, available <%=freeSpaces %> housing
+                                            Rent home
                                         </a>
                                         <% } %>
                                             <% if(hasUserBooked) { %>
                                                 <p class="alRentHome">
-                                                    You have already rent this home
+                                                    You rent this property
                                                 </p>
                                                 <% } %>
                                                     <% if(!hasFreeSpaces) {%>
@@ -56,7 +55,7 @@
                                                         <% } %>
                                                             <% } %>
                                                                 <% } %>
-                                                                    <a href="/rent-property" class="rentHome">
+                                                                    <a href="/rent-property" class="back">
                                                                         Back
                                                                     </a>
                     </div>

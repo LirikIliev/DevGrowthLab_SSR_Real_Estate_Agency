@@ -11,8 +11,15 @@ const {
 exports.rentHouseController = async (req, res, next) => {
   try {
     const { isAuth } = req.cookies;
+    const path = req.path;
     const properties = await getPropertiesService();
-    res.render('pages/rent-property', { pageTitle: 'House For Rent', isAuth, error: '', properties });
+    res.render('pages/rent-property', {
+      pageTitle: 'House For Rent',
+      isAuth,
+      path,
+      error: '',
+      properties
+    });
   } catch (err) {
     next({ errorObject: err });
   }
@@ -20,12 +27,13 @@ exports.rentHouseController = async (req, res, next) => {
 
 exports.getCreateOfferController = (req, res) => {
   const { isAuth } = req.cookies;
-
+  const path = req.path;
   const page = 'Create';
   res.render('pages/create', {
     pageTitle: page,
     operation: page,
     isAuth,
+    path,
     values: {},
     error: ''
   });
@@ -56,6 +64,7 @@ exports.getPropertyDetailsController = async (req, res, next) => {
   try {
     const { propertyId } = req.params;
     const { isAuth } = req.cookies;
+    const path = req.path;
     const { user: { _id } = {} } = req.cookies;
     const property = await getPropertyDetailsService({ propertyId, populateRow: ['owner'] });
     const isOwner = isAuth && _id ? _id.toString() === property.owner._id.toString() : false;
@@ -66,10 +75,12 @@ exports.getPropertyDetailsController = async (req, res, next) => {
       .map(tenant => tenant.name)
       .join(', ');
 
+
     res.render('pages/details',
       {
         pageTitle: 'Details',
         isAuth,
+        path,
         values: property,
         isOwner,
         freeSpaces,
@@ -90,6 +101,7 @@ exports.getEditDeletePropertyController = async (req, res, next) => {
   try {
     const { propertyId } = req.params;
     const { isAuth } = req.cookies;
+    const path = req.path;
     const property = await getPropertyDetailsService({ propertyId });
     const isDeletePage = req.path.includes('/delete');
     const page = isDeletePage ? 'Delete' : 'Edit';
@@ -97,6 +109,7 @@ exports.getEditDeletePropertyController = async (req, res, next) => {
     res.render('pages/create', {
       pageTitle: page,
       operation: page,
+      path,
       isAuth,
       values: property,
       error: ''

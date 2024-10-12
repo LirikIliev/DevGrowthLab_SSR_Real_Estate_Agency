@@ -1,5 +1,12 @@
+::-webkit-search-decoration,
+::-webkit-search-cancel-button,
+::-webkit-search-results-button,
+::-webkit-search-results-decoration {
+  display: none;
+}
+
 .search {
-  width: 540px;
+  width: 35%;
   height: 60px;
   margin: 100px auto;
   background: rgba(31, 30, 30, 0.938);
@@ -8,7 +15,7 @@
   background-color: #fff;
 
   > input {
-    width: 340px;
+    width: 60%;
     padding: 10px 5px;
     float: left;
     color: rgb(3, 3, 3);
@@ -42,7 +49,7 @@ button {
   padding: 0;
   cursor: pointer;
   height: 60px;
-  width: 120px;
+  width: 20%;
   font-size: 1.2em;
   color: rgb(53, 49, 49);
   background: rgb(207, 207, 214);
@@ -58,5 +65,44 @@ button {
   &:active {
     box-shadow: 0px 0px 12px 0px rgb(105, 93, 93);
     height: 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .search {
+    width: 65%;
+    height: 60px;
+    margin: 100px auto;
+
+    > input {
+      width: 70%;
+
+      &:focus {
+        outline: 0;
+        height: 60px;
+        background: transparent;
+      }
+    }
+  }
+  button {
+    width: 30%;
+  }
+
+  #find-section {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    > .card {
+      display: flex;
+      justify-content: center;
+      width: 90%;
+      padding: 0;
+      margin: 0;
+
+      a {
+        background: white;
+      }
+    }
   }
 }

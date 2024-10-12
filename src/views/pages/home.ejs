@@ -12,30 +12,30 @@
             </div>
         </section>
 
-        <section id="top-houses">
-            <h1>Top Houses</h1>
-            <div class="houses">
-
-                <% for(let property of properties) { %>
-                    <div class="card-home">
-                        <h2>
-                            <%=property.name%>
-                        </h2>
+        <section id="all-listings">
+            <h1 class="title">Property for rent</h1>
+            <% if(properties) {%>
+                <% for(let property of properties) {%>
+                    <div class="card">
+                        <h3>
+                            <%= property.name%>
+                        </h3>
+                        <p>
+                            <%=property.description%>
+                        </p>
                         <div class="cta-container">
-                            <a href="/property-details/<%=property._id%>" class="details-link">
-                                Details
-                            </a>
+                            <a href="/property-details/<%=property._id%>" class="det-link">Details</a>
                         </div>
-                        <div class="card_image"><img src="<%= property.image %>"></div>
+                        <div class="card_circle">
+                            <img src="<%=property.image%>">
+                        </div>
                     </div>
                     <% } %>
-
-                        <% if(properties.length===0) {%>
-                            <div class="no-data-container">
-                                <p class="no-data">There are no housing offers found...</p>
+                        <% } else {%>
+                            <div class="no-data-listing">
+                                <p class="no-offer">There are no housing offers found...</p>
                             </div>
                             <% } %>
-            </div>
         </section>
 
         <%- include('../includes/footer') %>

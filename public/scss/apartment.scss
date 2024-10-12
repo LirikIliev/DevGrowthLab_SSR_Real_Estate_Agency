@@ -134,3 +134,27 @@ h3 {
     box-shadow: 0 8px 17px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
   }
 }
+
+@media (max-width: 768px) {
+  #all-listings {
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+
+    > .card {
+      width: 90%;
+      margin: 0;
+    }
+    .det-link {
+      margin: -1em -2em 10px;
+      background: white;
+
+      &:hover {
+        background-color: #3487f7;
+        color: #fff;
+        box-shadow: 0 8px 17px rgba(0, 0, 0, 0.2),
+          0 6px 20px rgba(0, 0, 0, 0.19);
+      }
+    }
+  }
+}

@@ -2,9 +2,11 @@ const { registrationService, loginService } = require("../services/authServices"
 
 exports.getLoginController = (req, res) => {
   const { isAuth } = req.cookies;
+  const path = req.path;
   res.render('pages/login',
     {
       pageTitle: 'Login',
+      path,
       isAuth,
       values: {},
       error: ''
@@ -37,9 +39,11 @@ exports.logoutController = (req, res) => {
 
 exports.getRegisterController = (req, res) => {
   const { isAuth } = req.cookies;
+  const path = req.path;
   res.render('pages/register',
     {
       pageTitle: 'Register',
+      path,
       isAuth,
       values: {},
       error: ''
