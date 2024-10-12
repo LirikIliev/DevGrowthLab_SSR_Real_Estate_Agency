@@ -1,0 +1,161 @@
+$color_1: #7a73a8;
+$color_2: #8597a3;
+$color_3: #6658d3;
+$color_4: #fff;
+$background-color_1: rgb(247, 247, 247);
+$background-color_2: transparent;
+$background-color_3: #6658d3;
+$background-color_4: #5e52bd;
+$border-bottom-color_1: #6658d3;
+
+@import 'https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap';
+* {
+  box-sizing: border-box;
+  &:after {
+    box-sizing: border-box;
+  }
+  &:before {
+    box-sizing: border-box;
+  }
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+body {
+  background-color: $background-color_1;
+}
+input {
+  appearance: none;
+  border-radius: 0;
+}
+.boxs {
+  margin: 5rem auto;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 550px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 40px 0px;
+  padding: 0.55rem;
+  background: rgb(255, 255, 255);
+}
+.card-image {
+  border-radius: 9px;
+  overflow: hidden;
+  padding-bottom: 50%;
+  max-height: 200px;
+  background-image: url('../images/coffee_1.png');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: 0 20%;
+  position: relative;
+}
+.card-heading {
+  position: relative;
+  top: 0%;
+  margin-top: 55px;
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: $color_1;
+  text-align: center;
+  line-height: 1.222;
+  > small {
+    display: block;
+    font-size: 0.6em;
+    font-weight: 400;
+    margin-top: 0.24em;
+  }
+}
+.card-form {
+  padding: 2rem 1rem 0;
+}
+.input {
+  display: flex;
+  flex-direction: column-reverse;
+  position: relative;
+  padding-top: 2.5rem;
+  padding-bottom: 2em;
+}
+.username {
+  color: $color_2;
+  position: absolute;
+  font-size: 1.6em;
+  top: 1.7rem;
+  transition: 0.25s ease;
+  color: $color_3;
+  transform: translateY(-1.5rem);
+}
+.email_address {
+  color: $color_2;
+  position: absolute;
+  font-size: 1.6em;
+  top: 1.7rem;
+  transition: 0.25s ease;
+  color: $color_3;
+  transform: translateY(-1.5rem);
+}
+.password {
+  color: $color_2;
+  position: absolute;
+  font-size: 1.6em;
+  top: 1.7rem;
+  transition: 0.25s ease;
+  color: $color_3;
+  transform: translateY(-1.5rem);
+}
+.re-password {
+  color: $color_2;
+  position: absolute;
+  font-size: 1.6em;
+  top: 1.7rem;
+  transition: 0.25s ease;
+  color: $color_3;
+  transform: translateY(-1.5rem);
+}
+.input-field {
+  border: 0;
+  z-index: 1;
+  background-color: $background-color_2;
+  border-bottom: 2px solid #eee;
+  font: inherit;
+  font-size: 1.5rem;
+  padding: 0.25rem 0;
+  &:focus {
+    outline: 0;
+    border-bottom-color: $border-bottom-color_1;
+  }
+  &:valid {
+    outline: 0;
+    border-bottom-color: $border-bottom-color_1;
+  }
+}
+.action {
+  margin-top: 0.6rem;
+}
+.action-button {
+  font: inherit;
+  font-size: 1.25rem;
+  padding: 1em;
+  width: 100%;
+  font-weight: 500;
+  background-color: $background-color_3;
+  border-radius: 6px;
+  color: $color_4;
+  border: 0;
+  &:focus {
+    outline: 0;
+  }
+  &:hover {
+    background-color: $background-color_4;
+  }
+}
+.card-info {
+  padding: 1rem 1rem;
+  text-align: center;
+  font-size: 0.875rem;
+  > small {
+    font-size: 1.2em;
+    color: $color_3;
+  }
+}

@@ -1,0 +1,165 @@
+$color_1: #474747;
+$color_2: #aaa9a9;
+$color_3: #5f5a5a;
+$color_4: white;
+$font-family_1: 'Bentham', serif;
+$font-family_2: 'Raleway', sans-serif;
+$font-family_3: 'Playfair Display', serif;
+$font-family_4: 'Suranna', serif;
+$font-family_5: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+  'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+$background-color_1: #ffffff;
+$background-color_2: rgba(86, 124, 194, 0.911);
+$background-color_3: rgba(65, 92, 143, 0.911);
+$background-color_4: rgb(199, 136, 109);
+$background-color_5: rgb(177, 119, 95);
+$background-color_6: rgba(135, 167, 98, 0.911);
+
+.wrapper {
+  height: 680px;
+  width: 1100px;
+  margin: 140px auto;
+  border-radius: 7px 7px 7px 7px;
+  box-shadow: 0px 0px 3px 10px rgba(86, 124, 194, 0.911);
+}
+.product-img {
+  float: left;
+  height: 100%;
+  width: 570px;
+  img {
+    border-radius: 12px 0 0 7px;
+    height: 100%;
+  }
+}
+.product-info {
+  float: left;
+  height: 680px;
+  width: 530px;
+  border-radius: 0 7px 10px 7px;
+  background-color: $background-color_1;
+}
+.product-text {
+  height: 300px;
+  width: 327px;
+  h1 {
+    margin: 0 0 0 17px;
+    padding-top: 52px;
+    font-size: 28px;
+    color: $color_1;
+    font-family: $font-family_1;
+  }
+  h2 {
+    margin: 8px 0 47px 18px;
+    font-size: 13px;
+    font-family: $font-family_2;
+    text-transform: uppercase;
+    color: $color_2;
+    letter-spacing: 0.2em;
+    margin-bottom: 0;
+  }
+  h4 {
+    margin: 8px 0 10px 18px;
+    font-size: 13px;
+    font-family: $font-family_2;
+    text-transform: uppercase;
+    color: $color_2;
+    letter-spacing: 0.2em;
+    margin: 8px 0 10px 18px;
+    font-size: 13px;
+    font-family: $font-family_2;
+    text-transform: uppercase;
+    color: $color_2;
+    letter-spacing: 0.2em;
+  }
+  h5 {
+    margin: 8px 0 10px 18px;
+    font-size: 15px;
+    color: $color_1;
+    font-family: $font-family_1;
+  }
+  > p {
+    height: auto;
+    margin: 40px 0 0 58px;
+    width: 100%;
+    font-family: $font-family_3;
+    color: $color_3;
+    line-height: 1.6em;
+    margin-bottom: auto;
+    font-size: 21px;
+    font-weight: lighter;
+    overflow: hidden;
+  }
+}
+.product-btn {
+  p {
+    font-family: $font-family_1;
+    height: auto;
+    width: auto;
+    align-items: center;
+    padding: 10px;
+    border-radius: 60px;
+    justify-content: space-around;
+    font-family: $font-family_5;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: $color_4;
+    display: block;
+    margin-left: 30px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+  }
+  text-align: center;
+  margin-top: 8.5em;
+  position: relative;
+  a {
+    height: auto;
+    width: auto;
+    align-items: center;
+    padding: 10px;
+    border-radius: 60px;
+    justify-content: space-around;
+    font-family: $font-family_5;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: $color_4;
+    display: block;
+    margin-left: 30px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+  }
+}
+span {
+  display: inline-block;
+  height: 50px;
+  font-family: $font-family_4;
+  font-size: 34px;
+}
+.edit {
+  background-color: $background-color_2;
+  &:hover {
+    background-color: $background-color_3;
+  }
+}
+.rentHome {
+  background-color: $background-color_2;
+  &:hover {
+    background-color: $background-color_3;
+  }
+}
+.remove {
+  background-color: $background-color_4;
+  &:hover {
+    background-color: $background-color_5;
+  }
+}
+.no-housing {
+  background-color: $background-color_4;
+}
+.alRentHome {
+  background-color: $background-color_6;
+  text-align: center;
+}

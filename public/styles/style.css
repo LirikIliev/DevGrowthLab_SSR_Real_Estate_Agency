@@ -1,0 +1,8 @@
+@import '../scss/site.scss';
+@import '../scss/home.scss';
+@import '../scss/details.scss';
+@import '../scss/responsive.scss';
+@import '../scss/apartment.scss';
+@import '../scss/login-register.scss';
+@import '../scss/create-edit.scss';
+@import '../scss/search.scss';

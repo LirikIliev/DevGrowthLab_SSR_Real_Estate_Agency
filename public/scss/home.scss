@@ -1,0 +1,270 @@
+$color: rgb(234, 236, 250);
+$color_2: rgba(42, 42, 46, 0.85);
+$color_3: #0c0c41;
+$color_4: #fff;
+$color_5: #3487f7;
+$font_family_1: 'Verdana', Geneva, Tahoma, sans-serif;
+$font_family_2: 'Raleway', sans-serif;
+$background_color_1: white;
+$background_color_2: #fff;
+$background_color_3: #eef2f7;
+$background_color_4: #3487f7;
+
+#box {
+  height: auto;
+  width: auto;
+}
+
+.background-image {
+  background: url('../images/main_slider_1.jpg');
+  background-position: 40% 60%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: local;
+}
+
+.no-data-container {
+  width: 100%;
+  margin-top: 30px;
+  text-align: center;
+  background-color: $background_color_1;
+}
+
+.no-data-listing {
+  width: 100%;
+  height: 280px;
+  margin-top: 50px;
+  text-align: center;
+  background-color: $background_color_1;
+  padding: 50px;
+
+  > .no-offer {
+    font-size: 44px;
+    padding-top: 55px;
+    font-style: italic;
+  }
+}
+
+#not-found-page {
+  width: 100%;
+  margin-top: 10em;
+  text-align: center;
+  background-color: $background_color_1;
+  padding: 50px;
+
+  > h1 {
+    font-size: 60px;
+    margin-bottom: 10px;
+    font-style: italic;
+  }
+
+  > p {
+    font-size: 40px;
+    margin-bottom: 10px;
+    font-style: italic;
+  }
+}
+
+.no-data {
+  font-size: 44px;
+  font-style: italic;
+}
+
+.no-data-img {
+  box-shadow: 0px -2px 20px -1px #f4c537,
+    inset -14px -14px 30px -13px rgb(0 0 0 / 55%);
+  opacity: 0.95;
+  width: 100%;
+  height: 10%;
+  margin-bottom: 10px;
+}
+
+#top-houses {
+  text-align: center;
+  position: relative;
+  padding-bottom: 4%;
+  background: white;
+
+  > h1 {
+    font-size: 53px;
+    font-weight: 700;
+    margin-top: 30px;
+    padding-top: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+    text-align: center;
+    font-family: $font_family_2;
+    color: $color_2; // Correctly using the variable
+  }
+}
+
+.home-container {
+  margin: 0px auto 4px 0;
+  height: 700px;
+  display: flex;
+  top: 0%;
+  left: 50%;
+  margin-left: 40px;
+  text-align: center;
+}
+
+.info {
+  justify-items: legacy;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  flex: 1;
+  margin-top: 15em;
+  max-width: 100%;
+
+  > h1 {
+    font-size: 5.3rem;
+    margin: 12px 0 0px;
+    position: relative;
+    font-weight: 700;
+    line-height: 1.1;
+    text-transform: uppercase;
+    padding: 0;
+    letter-spacing: 0px;
+    font-family: $font_family_1;
+    color: $color;
+  }
+
+  > h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 0;
+    letter-spacing: 0px;
+    font-family: $font_family_1;
+    color: $color; // Correctly using the variable
+  }
+}
+
+.houses {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.details-con {
+  display: none;
+  margin-top: 320px;
+  position: absolute;
+  text-align: right;
+  width: 100%;
+  z-index: 9999;
+}
+
+.card-home {
+  background-color: $background_color_2; // Correctly using the variable
+  bottom: 0;
+  box-shadow: 0px 0px 40px 4px rgba(77, 77, 240, 0.315);
+  height: 400px;
+  margin-top: 20px;
+  left: 0;
+  overflow: hidden;
+  position: relative;
+  right: 0;
+  top: 0;
+  width: 500px;
+  margin-left: -1em;
+  text-align: center;
+
+  > h2 {
+    color: $color_3; // Correctly using the variable
+    font-family: $font_family_2;
+    font-size: 22px;
+    font-weight: 200;
+    margin-top: 330px;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    z-index: 9999;
+  }
+
+  &:hover {
+    h2 {
+      background: #3487f7;
+      color: $color_4; // Correctly using the variable
+      margin-top: 150px;
+      padding: 5px;
+    }
+    .card_image {
+      background-size: cover;
+      border-radius: 0;
+      margin-top: -120px;
+    }
+    height: 430px;
+    width: 500px;
+    .cta-container {
+      display: inline;
+      margin-top: 390px;
+    }
+    .card_circle {
+      background-size: cover;
+      border-radius: 0;
+      margin-top: -130px;
+    }
+  }
+}
+
+.card_image {
+  background-color: $background_color_3; // Correctly using the variable
+  background-size: cover;
+  height: 470px;
+  margin-left: -55px;
+  margin-top: -170px;
+  position: absolute;
+  width: 560px;
+
+  > img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.card {
+  &:hover {
+    height: 430px;
+    width: 500px;
+    .cta-container {
+      display: inline;
+      margin-top: 390px;
+    }
+    .card_circle {
+      background-size: cover;
+      border-radius: 0;
+      margin-top: -130px;
+    }
+  }
+}
+
+.details-link {
+  -webkit-transition: 0.2s ease-out;
+  border: 2px solid #3487f7;
+  border-radius: 2px;
+  color: $color_5; // Correctly using the variable
+  display: inline-block;
+  font-family: $font_family_2; // Correctly using the variable
+  font-size: 17px;
+  font-weight: 400;
+  height: 36px;
+  letter-spacing: 0.5px;
+  line-height: 36px;
+  padding: 0 2rem;
+  text-align: center;
+  margin-left: -1em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: 0.2s ease-out;
+
+  &:hover {
+    background-color: $background_color_4; // Correctly using the variable
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2),
+      0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    color: $color_4; // Correctly using the variable
+  }
+}

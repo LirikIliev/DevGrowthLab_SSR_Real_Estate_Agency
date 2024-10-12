@@ -1,0 +1,148 @@
+$primary-color: rgba(249, 249, 250, 0.85);
+$secondary-color: #fff;
+$text-color: rgba(0, 0, 0, 0.6);
+$dark-blue: #0c0c41;
+$highlight-color: #3487f7;
+
+$font-family-primary: 'Raleway', sans-serif;
+
+$bg-white: #fff;
+$bg-light-gray: #eef2f7;
+$bg-blue: #3487f7;
+
+#all-listings {
+  display: flex;
+  flex-wrap: wrap;
+
+  > .card {
+    margin-left: 6em;
+  }
+
+  > h1 {
+    font-size: 53px;
+    font-weight: 700;
+    margin: 50px 0 20px;
+    width: 100%;
+    text-align: center;
+    font-family: $font-family-primary;
+    color: $primary-color;
+  }
+}
+
+.card {
+  background-color: $bg-white;
+  position: relative;
+  width: 500px;
+  height: 440px;
+  margin: 20px -1em 0;
+  text-align: center;
+  box-shadow: 0 0 40px 4px rgba(77, 77, 240, 0.315);
+  overflow: hidden;
+
+  &:hover {
+    height: 460px;
+
+    .cta-container {
+      display: inline;
+      margin-top: 410px;
+    }
+
+    .card_circle {
+      margin-top: -130px;
+      background-size: cover;
+      border-radius: 0;
+    }
+
+    h3 {
+      background: $bg-blue;
+      color: $secondary-color;
+      margin-top: 120px;
+      padding: 5px;
+    }
+
+    p,
+    h4 {
+      margin-top: 325px;
+    }
+  }
+
+  h4,
+  p {
+    color: $text-color;
+    font-family: $font-family-primary;
+    font-weight: normal;
+    position: absolute;
+    text-align: center;
+    z-index: 9999;
+  }
+
+  h4 {
+    font-size: 100%;
+    margin-top: 340px;
+    padding-left: 5px;
+  }
+
+  p {
+    font-size: 100%;
+    margin-top: 315px;
+    padding: 0 5px;
+  }
+}
+
+.card_circle {
+  background-color: $bg-light-gray;
+  position: absolute;
+  width: 560px;
+  height: 440px;
+  margin: -170px -55px 0;
+  background-size: cover;
+
+  > img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+h3 {
+  color: $dark-blue;
+  font-family: $font-family-primary;
+  font-size: 22px;
+  font-weight: 200;
+  position: absolute;
+  margin-top: 280px;
+  width: 100%;
+  text-align: center;
+  z-index: 9999;
+}
+
+.cta-container {
+  display: none;
+  position: absolute;
+  text-align: center;
+  margin-top: 334px;
+  z-index: 9999;
+  margin-left: -10%;
+}
+
+.det-link {
+  display: inline-block;
+  font-family: $font-family-primary;
+  font-size: 17px;
+  font-weight: 400;
+  color: $highlight-color;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 2px solid $highlight-color;
+  border-radius: 2px;
+  line-height: 36px;
+  padding: 0 2rem;
+  margin: -1em 0 10px;
+  transition: 0.2s ease-out;
+  background-clip: padding-box;
+
+  &:hover {
+    background-color: $bg-blue;
+    color: $secondary-color;
+    box-shadow: 0 8px 17px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
+  }
+}
