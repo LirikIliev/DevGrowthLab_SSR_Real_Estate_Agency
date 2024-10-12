@@ -65,12 +65,12 @@ exports.getPropertyDetailsController = async (req, res, next) => {
     const { propertyId } = req.params;
     const { isAuth } = req.cookies;
     const path = req.path;
-    const { user: { _id } = {} } = req.cookies;
+    const { user: { _id = '' } = {} } = req.cookies;
     const property = await getPropertyDetailsService({ propertyId, populateRow: ['owner'] });
-    const isOwner = isAuth && _id ? _id.toString() === property.owner._id.toString() : false;
+    const isOwner = isAuth && _id ? _id?.toString() === property.owner._id?.toString() : false;
     const freeSpaces = Number(property.availablePieces) - Number(property.rentedAHouse.length);
     const hasFreeSpaces = freeSpaces > 0;
-    const hasUserBooked = property.rentedAHouse.some(userId => userId.toString() === _id.toString());
+    const hasUserBooked = property.rentedAHouse.some(userId => userId?.toString() === _id?.toString());
     const tenants = property.rentedAHouse
       .map(tenant => tenant.name)
       .join(', ');
@@ -90,6 +90,7 @@ exports.getPropertyDetailsController = async (req, res, next) => {
         error: ''
       });
   } catch (err) {
+    console.error(err)
     const errObj = {
       errorObject: err,
     };
