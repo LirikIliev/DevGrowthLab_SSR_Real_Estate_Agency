@@ -1,10 +1,3 @@
-$color_1: rgb(255, 255, 255);
-$color_2: white;
-$font-family_1: Georgia, 'Times New Roman', Times, serif;
-$font-family_2: 'Roboto', sans-serif;
-$background-color_1: white;
-$background-color_2: rgba(129, 115, 115, 0.466);
-
 @keyframes cssAnimation {
   to {
     width: 0;
@@ -23,7 +16,7 @@ $background-color_2: rgba(129, 115, 115, 0.466);
 }
 
 html {
-  font-family: $font-family_1;
+  font-family: Georgia, 'Times New Roman', Times, serif;
   font-size: 16px;
   box-sizing: border-box;
 }
@@ -59,7 +52,7 @@ body {
   top: 55px;
   text-align: center;
   border-radius: 0.5rem;
-  color: $color_1;
+  color: rgb(255, 255, 255);
   font-style: italic;
   height: auto;
   width: 620px;
@@ -85,22 +78,22 @@ body {
   margin-top: 15%;
   text-align: center;
   box-shadow: 0px 0px 80px 40px rgba(77, 77, 240, 0.315);
-  background-color: $background-color_1;
+  background-color: white;
   > h1 {
     font-size: 130px;
     font-weight: 800;
     text-align: center;
-    font-family: $font-family_2;
+    font-family: 'Roboto', sans-serif;
   }
   > h2 {
     font-size: 30px;
     text-align: center;
-    font-family: $font-family_2;
+    font-family: 'Roboto', sans-serif;
     margin-top: 20px;
   }
   > p {
     text-align: center;
-    font-family: $font-family_2;
+    font-family: 'Roboto', sans-serif;
     margin-top: 4px;
     font-size: 20px;
   }
@@ -124,17 +117,17 @@ nav {
     }
   }
   h1 {
-    color: $color_2;
+    color: white;
   }
   a {
     text-decoration: none;
     border-radius: 50%;
     padding: 0.5em;
-    color: $color_2;
+    color: white;
     text-transform: uppercase;
     &:hover {
       font-weight: normal;
-      background-color: $background-color_2;
+      background-color: rgba(129, 115, 115, 0.466);
     }
   }
 }
@@ -155,12 +148,12 @@ footer {
   height: 40px;
   font-size: 20px;
   width: 100%;
-  color: $color_2;
+  color: white;
   padding: 0.7em 1em;
   a {
     &:hover {
       font-weight: normal;
-      background-color: $background-color_2;
+      background-color: rgba(129, 115, 115, 0.466);
     }
   }
 }
