@@ -20,6 +20,7 @@ exports.rentHouseController = async (req, res, next) => {
       properties
     });
   } catch (err) {
+    console.error(err);
     next({ errorObject: err });
   }
 };
@@ -55,6 +56,7 @@ exports.postCreateOfferController = async (req, res, next) => {
       operation: 'Create',
       values: req.body
     };
+    console.error(err)
     next(errObj);
   }
 };
