@@ -1,4 +1,3 @@
-const { Schema, default: mongoose } = require("mongoose");
 const {
   createPropertyService,
   getPropertyDetailsService,
