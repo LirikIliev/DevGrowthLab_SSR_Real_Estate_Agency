@@ -63,7 +63,7 @@ exports.getPropertyDetailsController = async (req, res, next) => {
   try {
     const { propertyId } = req.params;
     const { isAuth } = req.cookies;
-    const path = req.path;
+    const path = '/rent-property';
     const { user: { _id = '' } = {} } = req.cookies;
     const property = await getPropertyDetailsService({ propertyId, populateRow: ['owner'] });
     const isOwner = isAuth && _id ? _id?.toString() === property.owner._id?.toString() : false;
@@ -73,7 +73,6 @@ exports.getPropertyDetailsController = async (req, res, next) => {
     const tenants = property.rentedAHouse
       .map(tenant => tenant.name)
       .join(', ');
-
 
     res.render('pages/details',
       {
@@ -89,7 +88,7 @@ exports.getPropertyDetailsController = async (req, res, next) => {
         error: ''
       });
   } catch (err) {
-    console.error(err)
+    console.error(err);
     const errObj = {
       errorObject: err,
     };
@@ -115,6 +114,7 @@ exports.getEditDeletePropertyController = async (req, res, next) => {
       error: ''
     });
   } catch (err) {
+    console.error(err);
     next({ errorObject: err })
   }
 };
