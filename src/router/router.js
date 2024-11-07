@@ -45,7 +45,7 @@ router.post('/register', isNotAuth, postRegisterController);
 router.get('/rent-property', rentHouseController);
 router.get('/create-offer', isAuth, getCreateOfferController);
 router.post('/create-offer', isAuth, postCreateOfferController);
-router.get('/property-details/:propertyId', getPropertyDetailsController)
+router.get('/property-details/:propertyId', getPropertyDetailsController);
 router.get('/edit-property-offer/:propertyId', isAuth, getEditDeletePropertyController);
 router.post('/edit-property-offer/:propertyId', isAuth, postEditDeletePropertyController);
 router.get('/delete-property-offer/:propertyId', isAuth, getEditDeletePropertyController);
