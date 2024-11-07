@@ -42,8 +42,8 @@ exports.postSearchForOfferController = async (req, res, next) => {
       searchResults
     });
   } catch (err) {
-    console.error(err)
-    next({ errorObject: err })
+    console.error(err);
+    next({ errorObject: err });
   }
 }
 
@@ -56,5 +56,5 @@ exports.getNotFoundController = (req, res) => {
       isAuth,
       path,
       error: ''
-    })
+    });
 };
