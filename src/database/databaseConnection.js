@@ -1,6 +1,6 @@
 const { connect } = require('mongoose');
 
-const { DATABASE_URL } = require('../config/config');
+const { DATABASE_URL } = require('./config');
 
 exports.databaseConnection = (callback) =>
   connect(DATABASE_URL)
